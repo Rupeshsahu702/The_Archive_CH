@@ -1,19 +1,15 @@
 import { Outlet, Link } from 'react-router-dom';
+import Navbar from '../components/Navbar';
 
 const ClientLayout = () => (
   <div className="min-h-screen flex flex-col">
-    <header className="bg-blue-600 text-white p-4">
-      <nav className="container mx-auto flex justify-between">
-        <Link to="/" className="text-xl font-bold">My App</Link>
-        <div>
-          <Link to="/login" className="mr-4">Login</Link>
-          <Link to="/admin">Admin</Link>
-        </div>
-      </nav>
-    </header>
+    {/* Replace the old header with the new Navbar component */}
+    <Navbar />
+    
     <main className="flex-grow container mx-auto p-4">
       <Outlet />
     </main>
+    
     <footer className="bg-gray-800 text-white p-4 text-center">
       Client Footer
     </footer>
