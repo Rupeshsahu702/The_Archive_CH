@@ -1,8 +1,9 @@
-const express = require('express');
-const cors = require('cors');
-const helmet = require('helmet');
-const morgan = require('morgan');
-const compression = require('compression');
+import express from 'express';
+import cors from 'cors';
+import helmet from 'helmet';
+import morgan from 'morgan';
+import compression from 'compression';
+import { notFound, errorHandler } from './middleware/errorMiddleware.js';
 
 const app = express();
 
@@ -19,4 +20,8 @@ app.get('/', (req, res) => {
   res.send('API is running...');
 });
 
-module.exports = app;
+// Error Handling Middleware
+app.use(notFound);
+app.use(errorHandler);
+
+export default app;
